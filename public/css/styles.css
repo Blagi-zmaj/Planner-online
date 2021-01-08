@@ -47,6 +47,10 @@ font-family: serif;
  grid-area: footer;
 }
 
+a {
+  #335819;
+}
+
 a:visited {
   color: #335819;
   text-decoration: none;
