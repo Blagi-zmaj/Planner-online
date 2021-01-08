@@ -48,7 +48,8 @@ font-family: serif;
 }
 
 a {
-  #335819;
+  /* color: #335819; */
+
 }
 
 a:visited {
@@ -86,6 +87,7 @@ body {
 .fas {
   font-size: 3rem;
   object-fit: fill;
+  color: #335819;
 }
 
 .iconItem {
