@@ -42,60 +42,6 @@ const listSchema = {
 
 const List = mongoose.model("List", listSchema);
 
-// app.get("/", function(req, res){
-//
-//   let currentDateAndHour = date.getDate();
-//   let currentDate = date.getDay();
-//
-//   const API_KEY = "34538dd7e7b8dca98778592aa134911e";
-//   const city = "Katowice";
-//   const units = "metric";
-//   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + API_KEY + "&units=" + units + "&lang=pl";
-//
-//   Task.find({}, function(err, findedTasks){
-//     // console.log(findedTasks);
-//
-//     if(findedTasks.length === 0){
-//       Task.insertMany(defaultTasks, function(err){
-//         if(err){
-//           console.log(err);
-//         } else {
-//           console.log("Success");
-//         }
-//       });
-//       res.redirect("/");
-//     }
-//
-//     https.get(url, function(response){
-//       response.on("data", function(data){
-//         const weatherData = JSON.parse(data);
-//         const weatherDescription = weatherData.weather[0].description;
-//         const outsideTemperature = weatherData.main.temp;
-//         const feelTemperature = weatherData.main.feels_like;
-//         const pressure = weatherData.main.pressure;
-//         const humidity = weatherData.main.humidity;
-//         const windSpeed = weatherData.wind.speed;
-//         const icon = weatherData.weather[0].icon;
-//         const imageUrl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
-//         res.render("index", {
-//           icon: imageUrl,
-//           weather: weatherDescription,
-//           outTemp: outsideTemperature,
-//           feelTemp: feelTemperature,
-//           pressure: pressure,
-//           humidity: humidity,
-//           windSpeed: windSpeed,
-//           currentDateAndHour:currentDateAndHour,
-//           currentDate:currentDate,
-//           newItemsList: findedTasks,
-//           title: "Praca"
-//         });
-//       })
-//     });
-//   });
-// });
-
-
 app.get("/:listName", function(req, res){
 
   let currentDateAndHour = date.getDate();
@@ -105,7 +51,6 @@ app.get("/:listName", function(req, res){
   const city = "Katowice";
   const units = "metric";
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + API_KEY + "&units=" + units + "&lang=pl";
-
 
   const custListName = req.params.listName;
 
@@ -156,51 +101,6 @@ app.get("/calendar", function(req, res){
   res.sendFile(__dirname + "/calendar.html");
 });
 
-// app.post("/", function(req, res){
-//   // const newItem = req.body.newTask;
-//   const newTaskName = req.body.newTask;
-//   const listName = req.body.listButton;
-//   console.log("Wartosc z button = " +  req.body.listButton);
-//
-//   const task = new Task({
-//     name: newTaskName
-//   });
-//
-//   task.save();
-//   res.redirect("/work");
-//
-// });
-
-/////////////////WAZNE POCZATEK ///////////////////////////////
-
-// app.post("/", function(req, res){
-//   // const newItem = req.body.newTask;
-//   const newTaskName = req.body.newTask;
-//   const listName = req.body.listButton;
-//   console.log("Nazwa listy " + listName);
-//
-//   const task = new Task({
-//     name: newTaskName
-//   });
-//   console.log(task);
-//   // task.save();
-//   // res.redirect("/work");
-//
-//   if(listName === "work"){
-//     task.save();
-//     res.redirect("/work");
-//     console.log("ADDED ON WORK LIST");
-//   } else {
-//     List.findOne({name: listName}, function(err, foundList){
-//       console.log("FOUNDLIST: " + foundList);
-//       console.log("FOUNDLIST.TASKS: " + foundList.tasks);
-//       foundList.tasks.push(task);
-//       foundList.save();
-//       res.redirect("/" + listName);
-//     });
-//   }
-///////////////KONIEC WAZNE/////////////////
-
 app.post("/", function(req, res){
   // const newItem = req.body.newTask;
   const newTaskName = req.body.newTask;
@@ -210,9 +110,6 @@ app.post("/", function(req, res){
   const task = new Task({
     name: newTaskName
   });
-  console.log(task);
-  // task.save();
-  // res.redirect("/work");
 
     List.findOne({name: listName}, function(err, foundList){
       console.log("FOUNDLIST: " + foundList);
@@ -233,15 +130,6 @@ app.post("/deleteTasks", function(req, res){
         res.redirect("/" + listName);
       }
     });
-
-  // Task.findByIdAndRemove({checkedTaskId}, function(err){
-  //   if(!err){
-  //     console.log("Succesfully deleted");
-  //     res.redirect("/work");
-  //   } else {
-  //     console.log(err);
-  //   }
-  // })
 });
 
 app.listen(3000, function(){
