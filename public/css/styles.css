@@ -1,0 +1,284 @@
+body {
+  background-color: grey;
+}
+
+#routePage {
+  display: grid;
+  background-color: red;
+  min-width: 90vw;
+  min-height: 90vh;
+  grid-template-areas:
+  "head head head head"
+  "nav main main aside"
+  "footer footer footer footer";
+  grid-template-columns: 1.5fr 1.25fr 1.25fr 1.5fr;
+  grid-template-rows: 1fr 10fr 1fr;
+}
+
+#routePage > header {
+  background-color: #fff;
+  grid-area: head;
+}
+
+#routePage > nav {
+ background-color: #ffa08c;
+ grid-area: nav;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-template-areas:
+ "menuBar dayTasks"
+ max-width: 40vw;
+ grid-column-gap: 10px;
+ z-index: 2;
+}
+
+#routePage > main {
+ background-color: #ffff64;
+  grid-area: main;
+}
+
+#routePage > .asideClass {
+background-color: #9dffd0;
+ grid-area: aside;
+}
+
+#routePage > footer {
+background-color: #8cffa0;
+ grid-area: footer;
+}
+
+.actualDate {
+  background-color: gold;
+  text-align: center;
+  /* min-width: 20%; */
+  max-width: 30%;
+  margin: 0 auto;
+  border-radius: 20px;
+  font-size: 25px;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px;
+}
+
+////////////*MENU*/////////////////
+
+body {
+  background-color: grey;
+}
+
+.menu {
+  /* background-color: gold; */
+  width: 7%;
+  position: absolute;
+  position:fixed;
+  top: 100px;
+  left: 10px;
+}
+
+.fas {
+  font-size: 3em;
+  object-fit: fill;
+}
+
+.iconItem {
+  padding: 15px 10px;
+  border: solid 1px red;
+  text-align: center;
+}
+
+.shortMenu {
+  background-color: brown;
+  /* width: 20%; */
+}
+
+.longMenu {
+  background-color: green;
+  position: absolute;
+  /* width: 20%; */
+  top: 0px;
+  visibility: hidden;
+  width: 26vw;
+  z-index: 1;
+}
+
+.shortMenu:hover {
+  /* visibility: hidden; */
+}
+
+.shortMenu:hover ~ .longMenu{
+  visibility: visible;
+}
+
+.menuItem {
+  padding: 30px 10px;
+  border: solid 1px red;
+  width: 5vw;
+  text-align: center;
+}
+
+.menuItemLN {
+  padding: 30px 10px;
+  border: solid 1px red;
+  width: 24vw;
+  text-align: center;
+}
+
+.dailyTasksContainer {
+  //kod taki jak w main, tylko mniejsze rozmiary;
+  min-width: 220px;
+  min-height: 180px;
+  background-color: purple;
+  z-index: 5;
+  grid-area: dayTasks;
+  margin-left: 8.5vw;
+  margin-top: 17px;
+  position: fixed;
+  z-index: -1;
+  border-radius: 15px;
+  box-shadow: 2px 5px grey;
+}
+
+.dayTask {
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  /* background-color: gold; */
+  border-bottom: 3px solid red;
+  justify-content: center;
+}
+
+.dayTask:last-child {
+  border-bottom: 0;
+}
+
+.asideClass {
+  display: block;
+  /* grid-template-rows: 1fr 1fr; */
+}
+
+.meteorlogist {
+  background-color: silver;
+  border-radius: 30px;
+  padding: 10px 40px;
+  text-align: left;
+  margin: 25px;
+  position: fixed;
+  top: 300px;
+  min-width: 17vw;
+  max-width: 18vw;
+}
+
+#weatherIcon {
+  text-align: center;
+  margin: 0;
+  max-height: 70px;
+}
+
+#logo {
+  font-size: 50px;
+}
+
+.calendar {
+    background-color: red;
+    /* margin: 260px 20px; */
+    margin: 20px 20px;
+    min-width: 15vw;
+    max-width: 15vw;
+    padding: 30px 60px;
+    text-align: center;
+    position: absolute;
+    position: fixed;
+    border-radius: 30px;
+}
+
+.tasksContainer {
+  background-color: purple;
+  text-align: center;
+  max-width: 40vw;
+  margin: 20px auto;
+  border-radius: 15px;
+  box-shadow: 2px 5px grey;
+}
+
+.task {
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  display: relative;
+  right: 50px;
+  align-items: center;
+  background-color: pink;
+  border-bottom: 3px solid red;
+  right: 50px;
+  /* justify-content: center; */
+}
+
+/* .task:last-child { */
+  /* border-bottom: 0; */
+  /* border-bottom: 3px solid red; */
+  /* display: block; */
+/* } */
+
+input[type="checkbox"] {
+  margin: 20px 10px 20px 20px;
+}
+
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	width: 12px;
+	height: 12px;
+  margin-left: 20px;
+  margin-right: 0px;
+  value: white;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+input[type="text"] {
+  height: 55px;
+  text-align: center;
+  width: 313px;
+  align-items: center;
+  border: none;
+  border-color: transparent;
+  background-color: pink;
+  margin-left: 4vw;
+  font-size: 1.5rem;
+}
+
+input[type="text"]:focus {
+  border: none;
+  outline: none;
+}
+
+input:checked+p {
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+
+.task > p {
+  margin: 20px auto;
+  position: relative;
+  right: 45px;
+  font-size: 2rem;
+}
+
+#addButton {
+  width: 55px;
+  height: 55px;
+  background-color: green;
+  font-size: 40px;
+  border-radius: 50px;
+  border: none;
+  position: relative;
+  top: 5px;
+  left: 20px;
+}
