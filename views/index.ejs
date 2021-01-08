@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Planner</title>
     <script src="https://kit.fontawesome.com/a4b8129466.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
     <script src=__dirname + "/app.js">
 
     </script>
@@ -24,9 +24,9 @@
           <a href="/work"> <div class="startSH iconItem"><i class="fas fa-shoe-prints"></i></div></a>
           <a href="/home">  <div class="listsSH iconItem"><i class="fas fa-clipboard-list"></i></div></a>
           <a href="/other">  <div class="settingsSH iconItem"><i class="fas fa-users-cog"></i></div></a>
-          <a href="/about">  <div class="aboutSH iconItem"><i class="fas fa-address-card"></i></div></a>
-          <a href="/contact">  <div class="contactSH iconItem"><i class="fas fa-file-signature"></i></div></a>
-          <a href="/premium">  <div class="premiumSH iconItem"><i class="fas fa-grin-stars"></i></div></a>
+          <a href="/test/about">  <div class="aboutSH iconItem"><i class="fas fa-address-card"></i></div></a>
+          <a href="/test/contact">  <div class="contactSH iconItem"><i class="fas fa-file-signature"></i></div></a>
+          <a href="/test/premium">  <div class="premiumSH iconItem"><i class="fas fa-grin-stars"></i></div></a>
           </div>
         </div>
 
@@ -73,7 +73,7 @@
       <aside class="asideClass">
         <div class="meteorlogist">
           <p id="weatherIcon"><img src=<%= icon %>></p>
-          <p>Pogoda: <%= weather %></p>
+          <p><%= weather %></p>
           <p>Temperatura na zewnątrz: <%= outTemp %> °C</p>
           <p>Temperatura odczuwalna: <%= feelTemp %> °C</p>
           <p>Ciśnienie: <%= pressure %> hPa</p>
@@ -86,7 +86,7 @@
         <a href="/calendar"><i class="fas fa-calendar-alt" style="font-size: 120px"></i></a>
         </div>
       </aside>
-      <footer>footer</footer>
+      <footer>&copy Copyright Daniel Szczotka</footer>
     </section>
   </body>
 </html>

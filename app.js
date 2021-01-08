@@ -7,12 +7,11 @@ const mongoose = require("mongoose");
 const app = express();
 
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({extended: true}));
-
-app.use(express.static("public"));
-
+app.use("/public", express.static("public"));
 mongoose.connect("mongodb+srv://admin-Daniel:Wombat1990@todolist.uwuf9.mongodb.net/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true});
+
+
 
 const tasksSchema = {
   name: String
@@ -29,7 +28,7 @@ const defaultTask2 = new Task({
 });
 
 const defaultTask3 = new Task({
-  name: "<--Wykreślanie zadań"
+  name: "<-Wykreślanie zadań"
 });
 
 const defaultTasks = [defaultTask1, defaultTask2, defaultTask3];
@@ -42,6 +41,97 @@ const listSchema = {
 
 const List = mongoose.model("List", listSchema);
 
+const today = new Date();
+const weekDay = ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"];
+const days = [];
+for(var i=0; i < 31; i++){
+  days[i] = i+1;
+}
+let currentMonth = today.getMonth()+1;
+
+let months = ["Styczen", "Luty", "Marzec", "Kwiecien", "Maj", "Czerwiec", "Lipiec", "Sierpien", "Wrzesien", "Pazdziernik", "Listopad", "Grudzien"];
+let startingMonthDayTab = [5, 1, 1, 4, 6, 2, 4, 7, 3, 5, 1, 3];
+let daysMonthAmount = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+let startingMonthDay = startingMonthDayTab[currentMonth-1];
+let startingMonth = months[currentMonth-1];
+let startingMonthDaysAmount = daysMonthAmount[currentMonth-1];
+
+let count = 0;
+for(var i=1 ; i<10; i++){
+  if(i >= startingMonthDay){
+    // console.log(i-count);
+  } else {
+    // console.log(0);
+    count++;
+  }
+}
+
+console.log(startingMonthDay-1);
+console.log(startingMonthDaysAmount);
+for(var i=0 ; i<37; i++){
+  if(i >= startingMonthDay-1){
+    if(i <= startingMonthDaysAmount+startingMonthDay){
+      if(i == startingMonthDaysAmount+startingMonthDay-1){
+        break;
+      } else {
+        // console.log( i - count + 1 );
+      }
+    }
+  } else {
+    // console.log(" 0 ");
+  }
+}
+
+
+app.get("/:month/settings/:option", function(req, res){
+  const actualMonth = req.params.month;
+  const chosenOption = req.params.option;
+
+  if(chosenOption === "previous"){
+    if(actualMonth === "Styczen"){
+      currentMonth = 12;
+    } else {
+      currentMonth--;
+    }
+  } else {
+    if(actualMonth === "Grudzien"){
+      currentMonth = 1;
+    } else {
+      currentMonth++;
+    }
+  }
+
+  startingMonth = months[currentMonth];
+  res.render("calendar", {
+    week: weekDay,
+    days: days,
+    startingMonthDay: startingMonthDay,
+    count: count,
+    startingMonthDaysAmount: startingMonthDaysAmount,
+    startingMonth: months[currentMonth-1]
+  });
+});
+
+app.get("/test/:listName",function(req, res){
+  res.render("test", {});
+});
+
+app.get("/calendar", function(req, res){
+  // res.sendFile(__dirname + "/calendar.html");
+  res.render("calendar", {
+    week: weekDay,
+    days: days,
+    startingMonthDay: startingMonthDay,
+    count: count,
+    startingMonthDaysAmount: startingMonthDaysAmount,
+    startingMonth: startingMonth
+  });
+});
+
+// app.get("/test/:listName",function(req, res){
+//   res.render("test");
+// });
+
 app.get("/:listName", function(req, res){
 
   let currentDateAndHour = date.getDate();
@@ -53,6 +143,10 @@ app.get("/:listName", function(req, res){
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + API_KEY + "&units=" + units + "&lang=pl";
 
   const custListName = req.params.listName;
+
+  // if(custListName === "calendar"){
+  //   res.redirect("/calendar");
+  // }
 
   List.findOne({name: custListName}, function(err, foundList){
     if(!err){
@@ -97,9 +191,7 @@ app.get("/:listName", function(req, res){
   });
 });
 
-app.get("/calendar", function(req, res){
-  res.sendFile(__dirname + "/calendar.html");
-});
+
 
 app.post("/", function(req, res){
   // const newItem = req.body.newTask;
@@ -120,6 +212,9 @@ app.post("/", function(req, res){
     });
   });
 
+app.post("/work", function(req, res){
+  res.redirect("/work");
+});
 
 app.post("/deleteTasks", function(req, res){
   const checkedTaskId = req.body.checked;
@@ -138,5 +233,5 @@ if (port == null || port == "") {
 }
 
 app.listen(port, function(){
-  console.log("Server started successfully");
+  console.log("Server succesfully running");
 });

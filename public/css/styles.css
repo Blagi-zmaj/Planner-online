@@ -1,27 +1,27 @@
-body {
-  background-color: grey;
+html {
+font-family: serif;
 }
 
 #routePage {
   display: grid;
-  background-color: red;
+  background-color: #FFFFFF;
   min-width: 90vw;
-  min-height: 90vh;
+  /* min-height: 50vh; */
   grid-template-areas:
   "head head head head"
   "nav main main aside"
   "footer footer footer footer";
   grid-template-columns: 1.5fr 1.25fr 1.25fr 1.5fr;
-  grid-template-rows: 1fr 10fr 1fr;
+  grid-template-rows: 1fr 8fr 1fr;
 }
 
 #routePage > header {
-  background-color: #fff;
+  /* background-color: #fff; */
   grid-area: head;
 }
 
 #routePage > nav {
- background-color: #ffa08c;
+ /* background-color: #ffa08c; */
  grid-area: nav;
  display: grid;
  grid-template-columns: 1fr 1fr;
@@ -33,25 +33,29 @@ body {
 }
 
 #routePage > main {
- background-color: #ffff64;
+ /* background-color: #ffff64; */
   grid-area: main;
 }
 
 #routePage > .asideClass {
-background-color: #9dffd0;
+/* background-color: #9dffd0; */
  grid-area: aside;
 }
 
 #routePage > footer {
-background-color: #8cffa0;
+/* background-color: #8cffa0; */
  grid-area: footer;
 }
 
+a:visited {
+  color: #335819;
+  text-decoration: none;
+}
+
 .actualDate {
-  background-color: gold;
+  background-color: #92E557;
   text-align: center;
-  /* min-width: 20%; */
-  max-width: 30%;
+  max-width: 40%;
   margin: 0 auto;
   border-radius: 20px;
   font-size: 25px;
@@ -62,10 +66,8 @@ h1 {
   padding: 20px;
 }
 
-////////////*MENU*/////////////////
-
 body {
-  background-color: grey;
+  background-color: #61A62F;
 }
 
 .menu {
@@ -73,30 +75,30 @@ body {
   width: 7%;
   position: absolute;
   position:fixed;
-  top: 100px;
+  top: 10vh;
   left: 10px;
 }
 
 .fas {
-  font-size: 3em;
+  font-size: 3rem;
   object-fit: fill;
 }
 
 .iconItem {
   padding: 15px 10px;
-  border: solid 1px red;
+  border: solid 1px #FFFFFF;
   text-align: center;
 }
 
 .shortMenu {
-  background-color: brown;
-  /* width: 20%; */
+  background-color: #95D468;
+  margin-left:15%;
+  margin-top: 60%;
 }
 
 .longMenu {
   background-color: green;
   position: absolute;
-  /* width: 20%; */
   top: 0px;
   visibility: hidden;
   width: 26vw;
@@ -113,23 +115,22 @@ body {
 
 .menuItem {
   padding: 30px 10px;
-  border: solid 1px red;
+  border: solid 1px #FFFFFF;
   width: 5vw;
   text-align: center;
 }
 
 .menuItemLN {
   padding: 30px 10px;
-  border: solid 1px red;
+  border: solid 1px #FFFFFF;
   width: 24vw;
   text-align: center;
 }
 
 .dailyTasksContainer {
-  //kod taki jak w main, tylko mniejsze rozmiary;
-  min-width: 220px;
+  min-width: 15vw;
   min-height: 180px;
-  background-color: purple;
+  background-color: #95D468;
   z-index: 5;
   grid-area: dayTasks;
   margin-left: 8.5vw;
@@ -146,7 +147,7 @@ body {
   display: flex;
   align-items: center;
   /* background-color: gold; */
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid #FFFFFF;
   justify-content: center;
 }
 
@@ -160,15 +161,16 @@ body {
 }
 
 .meteorlogist {
-  background-color: silver;
+  background-color: #95D468;
   border-radius: 30px;
-  padding: 10px 40px;
+  padding: 0px 30px;
   text-align: left;
   margin: 25px;
   position: fixed;
-  top: 300px;
-  min-width: 17vw;
-  max-width: 18vw;
+  top: 270px;
+  min-width: 19vw;
+  max-width: 19vw;
+  font-family: sans-serif;
 }
 
 #weatherIcon {
@@ -182,12 +184,12 @@ body {
 }
 
 .calendar {
-    background-color: red;
-    /* margin: 260px 20px; */
+    background-color: #95D468;
     margin: 20px 20px;
     min-width: 15vw;
     max-width: 15vw;
-    padding: 30px 60px;
+    min-height: 10vh;
+    padding: 20px 60px;
     text-align: center;
     position: absolute;
     position: fixed;
@@ -195,7 +197,7 @@ body {
 }
 
 .tasksContainer {
-  background-color: purple;
+  background-color: #95D468;
   text-align: center;
   max-width: 40vw;
   margin: 20px auto;
@@ -210,17 +212,11 @@ body {
   display: relative;
   right: 50px;
   align-items: center;
-  background-color: pink;
-  border-bottom: 3px solid red;
+  background-color: #DFF2D1;
+  border-bottom: 3px solid #FFFFFF;
   right: 50px;
-  /* justify-content: center; */
 }
 
-/* .task:last-child { */
-  /* border-bottom: 0; */
-  /* border-bottom: 3px solid red; */
-  /* display: block; */
-/* } */
 
 input[type="checkbox"] {
   margin: 20px 10px 20px 20px;
@@ -245,11 +241,11 @@ input[type="color"]::-webkit-color-swatch {
 input[type="text"] {
   height: 55px;
   text-align: center;
-  width: 313px;
+  width: 30vw;
   align-items: center;
   border: none;
   border-color: transparent;
-  background-color: pink;
+  background-color: #DFF2D1;
   margin-left: 4vw;
   font-size: 1.5rem;
 }
@@ -259,9 +255,26 @@ input[type="text"]:focus {
   outline: none;
 }
 
+.meteorlogist > p {
+  font-size: 1.2vw;
+}
+
 input:checked+p {
   text-decoration: line-through;
   text-decoration-color: red;
+}
+
+::placeholder {
+  font-size: 1.8rem;
+}
+
+.title > h1 {
+  font-size: 3rem;
+  /* background-color: #1a8cff; */
+}
+
+.actualDate > h1 {
+  font-size: 3rem;
 }
 
 .task > p {
@@ -279,6 +292,13 @@ input:checked+p {
   border-radius: 50px;
   border: none;
   position: relative;
-  top: 5px;
+  top: 0px;
   left: 20px;
+}
+
+footer {
+  text-align: center;
+  font-size: 3rem;
+  /* margin-bottom: 40px; */
+  background-color: #335819;
 }
