@@ -1,40 +1,41 @@
 * {
   box-sizing: border-box;
   position:relative;
+  font-family: serif;
 }
 
 body{
-  background-color: grey;
+  background-color: #F6E7D5;
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 2fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  grid-template-rows: 1.5fr 0.5fr 0.4fr 0.4fr 0.4fr 0.4fr;
 }
 
 .previous, .next, .year {
-  background-color: #1C5CD4;
-  font-size: 40px;
-  padding: 5%;
+  background-color: #337A00;
+  font-size: 60px;
+  padding: 2%;
 }
 
 .previous {
-  border: 1px solid red;
+  border: 1px solid #F6E7D5;
   text-align: center;
   padding: 60px;
 /*   padding: 100px 20px; */
 }
 
 .year {
-  border: 1px solid red;
+  border: 1px solid #F6E7D5;
   text-align: center;
   grid-area: 1/2/2/7;
 /*   padding: 100px 20px; */
 }
 
 .next {
-  border: 1px solid red;
+  border: 1px solid #F6E7D5;
   text-align: center;
   padding: 60px;
 /*   padding: 100px 20px; */
@@ -42,18 +43,20 @@ body{
 
 .weekDay, .item, .item-p{
   text-align: center;
-  padding: 25px;
-  border: 2px solid blue;
-  background-color: #F6E7D5;
+  padding: 15px;
+  font-size: 25px;
+  border: 2px solid #F6E7D5;
+  background-color: #EBF7E3;
 }
 
 .weekDay {
-  background-color:  #EF8710;
+  background-color:#66B032 ;
+  font-size: 2em;
 }
 
 
 .item1 {
-  background-color: red;
+  background-color: #F6E7D5;
   height: 200px;
   width: 500px;
 }
@@ -65,7 +68,7 @@ body{
 }
 
 .item3 {
-  background-color: blue;
+  background-color: #F6E7D5;
   height: 200px;
   width: 500px;
 }
