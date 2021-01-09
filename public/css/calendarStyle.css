@@ -77,6 +77,11 @@ body{
   grid-area: 1/1/2/8;
 }
 
+.previous, .next {
+  font-size: 60px;
+  color: #F6E7D5;
+}
+
 /*
 .container > .item {
   border: 1px solid red;
