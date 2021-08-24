@@ -18,6 +18,8 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "https": "^1.0.0",
-    "mongoose": "^5.11.10"
+    "lodash": "^4.17.20",
+    "mongoose": "^5.11.10",
+    "node-localstorage": "^2.1.6"
   }
 }
